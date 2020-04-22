@@ -1,0 +1,22 @@
+﻿<Window x:Class="KaoChat.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KaoChat"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="478.67" Width="800" WindowState="Maximized">
+	<Window.Resources>
+		<local:Soba x:Key="NasaSoba" Naziv="Test"/>
+		<local:Korisnik x:Key="kor1" Ime="Pera" TrenutnaSoba="{StaticResource NasaSoba}"/>
+	</Window.Resources>
+	<StackPanel>
+		<ItemsControl Name="ic" ItemsSource="{Binding Source={StaticResource kor1}, Path=Poruke}" Height="400" />
+		<UniformGrid Columns="2">
+			<TextBox Text="{Binding Source={StaticResource kor1}, Path=Unos}"/>
+			<Button Content="Posalji" DataContext="{StaticResource kor1}" Click="Klik"/>
+			<Label/>
+			<ComboBox/>
+		</UniformGrid>
+	</StackPanel>
+</Window>
