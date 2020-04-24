@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,8 @@ namespace KaoChat
 			get => trenutnaSoba; 
 			set
 			{
+				if (TrenutnaSoba != null)
+					TrenutnaSoba.PosaljiPoruku -= this.PrimiPoruku;
 				trenutnaSoba = value;
 				if (TrenutnaSoba != null)
 					TrenutnaSoba.PosaljiPoruku += this.PrimiPoruku;
@@ -35,7 +38,7 @@ namespace KaoChat
 			}
 		}
 
-		public List<string> Poruke { get; set; } = new List<string>();
+		public ObservableCollection<string> Poruke { get; set; } = new ObservableCollection<string>();
 
 		public event PropertyChangedEventHandler PropertyChanged;
 

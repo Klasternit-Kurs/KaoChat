@@ -36,7 +36,6 @@ namespace KaoChat
 		private void Klik(object sender, RoutedEventArgs e)
 		{
 			Kor.PoslajiPoruku();
-			ic.ItemsSource = Kor.Poruke.ToList();
 		}
 	}
 }

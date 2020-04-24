@@ -58,6 +58,7 @@
     <Compile Include="ChatUI.xaml.cs">
       <DependentUpon>ChatUI.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Logger.cs" />
     <Compile Include="Soba.cs" />
     <Page Include="ChatUI.xaml">
       <SubType>Designer</SubType>

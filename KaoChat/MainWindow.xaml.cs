@@ -30,14 +30,30 @@ namespace KaoChat
 			Sobe.Add(new Soba("Prva"));
 			Sobe.Add(new Soba("Druga"));
 			Sobe.Add(new Soba("Treca"));
-			Korisnik k1 = new Korisnik("Pera");
+
+			//foreach (Soba s in Sobe)
+			//	s.PosaljiPoruku += Logger.SpremiPoruku;
+
+			Sobe.ToList()
+				.ForEach(s => s.PosaljiPoruku += Logger.SpremiPoruku);
+
+
 			ChatUI cui = new ChatUI(Sobe);
-			cui.Kor = k1;
+			cui.Kor = new Korisnik("Pera");
 			sp.Children.Add(cui);
 
-		}
+			cui = new ChatUI(Sobe);
+			cui.Kor = new Korisnik("Neko tamo");
+			sp.Children.Add(cui);
 
-		
+			cui = new ChatUI(Sobe);
+			cui.Kor = new Korisnik("Jos neko");
+			sp.Children.Add(cui);
+
+			cui = new ChatUI(Sobe);
+			cui.Kor = new Korisnik("I jos jedan");
+			sp.Children.Add(cui);
+		}
 
 		//private void PromenaSobe(object sender, SelectionChangedEventArgs e)
 		//{

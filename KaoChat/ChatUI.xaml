@@ -7,12 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 	<StackPanel Width="400">
-		<ItemsControl Name="ic" ItemsSource="{Binding Source=Kor, Path=Poruke}" Height="400" />
+		<ItemsControl Name="ic" ItemsSource="{Binding Path=Kor.Poruke}" Height="400" />
 		<UniformGrid Columns="2">
-			<TextBox Text="{Binding Source=Kor, Path=Unos}"/>
+			<TextBox Text="{Binding Path=Kor.Unos}"/>
 			<Button Content="Posalji" Click="Klik"/>
 			<Label/>
-			<ComboBox Name="cmb" SelectedItem="{Binding Source=Kor, Path=TrenutnaSoba, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}"/>
+			<ComboBox Name="cmb" SelectedItem="{Binding Path=Kor.TrenutnaSoba, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}"/>
 		</UniformGrid>
 	</StackPanel>
 </UserControl>
