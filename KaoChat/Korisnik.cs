@@ -18,7 +18,8 @@ namespace KaoChat
 			set
 			{
 				trenutnaSoba = value;
-				TrenutnaSoba.PosaljiPoruku += this.PrimiPoruku;
+				if (TrenutnaSoba != null)
+					TrenutnaSoba.PosaljiPoruku += this.PrimiPoruku;
 			}
 		}
 
@@ -40,14 +41,14 @@ namespace KaoChat
 		//Prva stvar u lancu dogadjaja. Korisnik poziva metodu sobe i daje joj poruku
 		public void PoslajiPoruku()
 		{
-			TrenutnaSoba.PrimiPoruku(Unos);
+			TrenutnaSoba.PrimiPoruku(Unos, this);
 			Unos = "";
 		}
 
 		//Treci korak eventa, korisnik dobija poruku od eventa
 		public void PrimiPoruku(object soba, PosaljiPorukuArgs p)
 		{
-			Poruke.Add(p.Poruka);
+			Poruke.Add($"{DateTime.Now} - {(soba as Soba).Naziv} -- {p.Kor.Ime}:  {p.Poruka}");
 		}
 	}
 }

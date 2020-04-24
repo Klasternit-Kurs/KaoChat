@@ -10,9 +10,11 @@ namespace KaoChat
 	public class PosaljiPorukuArgs
 	{
 		public string Poruka;
-		public PosaljiPorukuArgs(string p)
+		public Korisnik Kor;
+		public PosaljiPorukuArgs(string p, Korisnik k)
 		{
 			Poruka = p;
+			Kor = k;
 		}
 	}
 
@@ -24,9 +26,11 @@ namespace KaoChat
 		public event PosaljiPorukuHandler PosaljiPoruku;
 
 		//Drugi korak, soba prima poruku, i samo je prosledi eventu, koji poziva sve koji ga slusaju
-		public void PrimiPoruku(string p)
+		public void PrimiPoruku(string p, Korisnik k)
 		{
-			PosaljiPoruku?.Invoke(this, new PosaljiPorukuArgs(DateTime.Now + "---" + p));
+			PosaljiPoruku?.Invoke(this, new PosaljiPorukuArgs(p, k));
 		}
+
+		public Soba(string n) => Naziv = n;
 	}
 }
