@@ -6,27 +6,7 @@
         xmlns:local="clr-namespace:KaoChat"
         mc:Ignorable="d"
         Title="MainWindow" Height="478.67" Width="800" WindowState="Maximized">
-	<Window.Resources>
-		<local:Korisnik x:Key="kor1" Ime="Pera"/>
-	</Window.Resources>
-	<StackPanel Orientation="Horizontal">
-		<StackPanel Width="200">
-			<ItemsControl Name="ic" ItemsSource="{Binding Source={StaticResource kor1}, Path=Poruke}" Height="400" />
-			<UniformGrid Columns="2">
-				<TextBox Text="{Binding Source={StaticResource kor1}, Path=Unos}"/>
-				<Button Content="Posalji" DataContext="{StaticResource kor1}" Click="Klik"/>
-				<Label/>
-				<ComboBox Name="cmb" SelectedItem="{Binding Source={StaticResource kor1}, Path=TrenutnaSoba, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}" DataContext="{StaticResource kor1}" />
-			</UniformGrid>
-		</StackPanel>
-		<StackPanel Width="200">
-			<ItemsControl Name="ic2" ItemsSource="{Binding Source={StaticResource kor1}, Path=Poruke}" Height="400" />
-			<UniformGrid Columns="2">
-				<TextBox Text="{Binding Source={StaticResource kor1}, Path=Unos}"/>
-				<Button Content="Posalji" DataContext="{StaticResource kor1}" Click="Klik"/>
-				<Label/>
-				<ComboBox Name="cmb2" SelectedItem="{Binding Source={StaticResource kor1}, Path=TrenutnaSoba, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}" DataContext="{StaticResource kor1}" />
-			</UniformGrid>
-		</StackPanel>
+	<StackPanel Name="sp" Orientation="Horizontal">
+		
 	</StackPanel>
 </Window>

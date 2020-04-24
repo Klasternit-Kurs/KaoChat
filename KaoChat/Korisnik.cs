@@ -9,6 +9,7 @@ namespace KaoChat
 {
 	public class Korisnik : INotifyPropertyChanged
 	{
+		public Korisnik(string i) => Ime = i;
 		public string Ime { get; set; }
 
 		private Soba trenutnaSoba;

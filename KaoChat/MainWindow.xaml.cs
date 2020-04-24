@@ -30,18 +30,14 @@ namespace KaoChat
 			Sobe.Add(new Soba("Prva"));
 			Sobe.Add(new Soba("Druga"));
 			Sobe.Add(new Soba("Treca"));
+			Korisnik k1 = new Korisnik("Pera");
+			ChatUI cui = new ChatUI(Sobe);
+			cui.Kor = k1;
+			sp.Children.Add(cui);
 
-			cmb.ItemsSource = Sobe;
-			cmb.DisplayMemberPath = "Naziv";
-			cmb.SelectedIndex = 0;
 		}
 
-		private void Klik(object sender, RoutedEventArgs e)
-		{
-			var k = (sender as Control).DataContext as Korisnik;
-			k.PoslajiPoruku();
-			ic.ItemsSource = k.Poruke.ToList();
-		}
+		
 
 		//private void PromenaSobe(object sender, SelectionChangedEventArgs e)
 		//{
